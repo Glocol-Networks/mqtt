@@ -21,8 +21,8 @@ def on_message(client, userdata, msg):  # The callback for when a PUBLISH messag
 
 broker_address= "192.168.0.6"  #Broker address
 port = 1883                         #Broker port
-user = "me"                    #Connection username
-password = "abcdef"            #Connection password
+user = "username"                    #Connection username
+password = "qwerty"            #Connection password
 
 client = mqtt.Client("Python")
 client.username_pw_set(user, password=password)
