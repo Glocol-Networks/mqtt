@@ -13,11 +13,11 @@ def on_connect(client, userdata, flags, rc):  # The callback for when the client
 def on_message(client, userdata, msg):  # The callback for when a PUBLISH message is received from the server.
     print("Message received-> " + msg.topic + " " + str(msg.payload))  # Print a received msg
     with open('./test.json','a+') as f:
-        f.write("Message received: "  + msg.payload + "\n")
-    df = pd.read_json (r'./test.json')
-    df.to_csv (r'./output.csv', mode='a', index = None)
+        f.write("Message received: "  + msg.payload + "\n") #send the msg to a json file
+    df = pd.read_json (r'./test.json') # read the json file in pandas
+    df.to_csv (r'./output.csv', mode='a', index = None) # convert json to csv and append to a file
     if os.path.exists('./test.json'):
-        os.remove('./test.json')
+        os.remove('./test.json') # remove the previous json file
 
 broker_address= "192.168.0.6"  #Broker address
 port = 1883                         #Broker port
